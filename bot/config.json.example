@@ -1,0 +1,14 @@
+{
+	"token": "",
+	"app_id": "",
+	"antitable": true,
+	"kappa": true,
+	"fbm": true,
+	"command_prefix": "~",
+	"mod_command_prefix": "#",
+	"debug": false,
+	"show_warn": false,
+	"admin_id": "",
+	"banned_server_ids": [""],
+	"whitelist": [""]
+}

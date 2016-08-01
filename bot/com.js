@@ -155,9 +155,8 @@ var commands = {
 		description: "Loads some random Emma Watson images :hearts: ",
 		cooldown: 5,
 		process: function(clientBot, msg) {
-			var count = fs.readdirSync( __dirname + "/img/emma/").length;
-			var choosenImg = Math.floor((Math.random() * count) + 0);
-			clientBot.sendFile( msg.channel, __dirname + "/img/emma/" + fs.readdirSync( __dirname + "/img/emma/")[choosenImg] + "", __dirname + "/img/emma/" + fs.readdirSync( __dirname + "/img/emma/")[choosenImg] + "", (err, msg) => {
+			let file = getAsset("emma", "*");
+			clientBot.sendFile( msg.channel, file, file, (err, msg) => {
 				if (err) {
 					clientBot.sendMessage(msg.channel, "I do not have the rights to send a **file** :cry:!");
 				}
@@ -169,9 +168,8 @@ var commands = {
 		description: "Loads some random Jennifer Lawrence images :hearts: ",
 		cooldown: 5,
 		process: function(clientBot, msg) {
-			var count = fs.readdirSync( __dirname + "/img/jlaw/").length;
-			var choosenImg = Math.floor((Math.random() * count) + 0);
-			clientBot.sendFile( msg.channel, __dirname + "/img/jlaw/" + fs.readdirSync( __dirname + "/img/jlaw/")[choosenImg] + "", __dirname + "/img/jlaw/" + fs.readdirSync( __dirname + "/img/jlaw/")[choosenImg] + "", (err, msg) => {
+			let file = getAsset("jlaw", "*");
+			clientBot.sendFile( msg.channel, file, file, (err, msg) => {
 				if (err) {
 					clientBot.sendMessage(msg.channel, "I do not have the rights to send a **file** :cry:!");
 				}

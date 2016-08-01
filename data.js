@@ -101,7 +101,8 @@ clientBot.on("message", function (msg) {
 	
 	if(config.kappa) {
 		if(msg.content.toLowerCase().indexOf( "kappa" ) >= 0 ) {
-			clientBot.sendFile( msg.channel, __dirname + "/img/emotes/kappa.png" , __dirname + "/img/emotes/kappa.png", (err, msg) => {
+			let emote = getAsset("emotes", "kappa.png");
+			clientBot.sendFile(msg.channel, emote, emote, (err, msg) => {
 				if (err) {
 					clientBot.sendMessage(msg.channel, "I do not have the rights to send a **file** :cry:!");
 				}
@@ -111,7 +112,8 @@ clientBot.on("message", function (msg) {
 	
 	if(config.fbm) {
 		if(msg.content.toLowerCase().indexOf( "feelsbadman" ) >= 0 ) {
-			clientBot.sendFile( msg.channel, __dirname + "/img/emotes/feelsbad.png" , __dirname + "/img/emotes/feelsbad.png", (err, msg) => {
+			let emote = getAsset("emotes", "feelsbad.png");
+			clientBot.sendFile(msg.channel, emote, emote, (err, msg) => {
 				if (err) {
 					clientBot.sendMessage(msg.channel, "I do not have the rights to send a **file** :cry:!");
 				}
@@ -121,7 +123,8 @@ clientBot.on("message", function (msg) {
 	
 	if(config.fbm) {
 		if(msg.content.toLowerCase().indexOf( "john cena" ) >= 0 ) {
-			clientBot.sendFile( msg.channel, __dirname + "/img/emotes/cena.gif" , __dirname + "/img/emotes/cena.gif", (err, msg) => {
+			let emote = getAsset("emotes", "cena.gif");
+			clientBot.sendFile(msg.channel, emote, emote, (err, msg) => {
 				if (err) {
 					clientBot.sendMessage(msg.channel, "I do not have the rights to send a **file** :cry:!");
 				}
@@ -190,3 +193,22 @@ clientBot.loginWithToken(config.token, (err, token) => {
 setInterval(() => {
 	clientBot.setPlayingGame(games[Math.floor(Math.random() * (games.length))]);
 }, (10 * 1000) * 60); //change playing game every 10 minutes
+
+global.getAsset = (prefix, file) => {
+	const fs = require("fs");
+
+	let path = `${__dirname}/assets/${prefix}/`;
+
+	try {
+		if(file == "*") {
+			let dir = fs.readdirSync(path);
+			let choice = Math.floor(Math.random() * dir.length);
+			return dir[choice];
+		} else {
+			fs.statSync(path + file);
+			return path + file;
+		}
+	} catch(e) {
+		return false;
+	}
+};

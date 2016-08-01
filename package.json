@@ -1,0 +1,26 @@
+{
+  "name": "awesom-o",
+  "version": "1.0.0",
+  "description": "",
+  "main": "data.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devsome/discordBot.git"
+  },
+  "authors": [
+    "Alexander Frank",
+    "Lukas Breuer <lukas.breuer@outlook.com>"
+  ],
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/devsome/discordBot/issues"
+  },
+  "homepage": "https://github.com/devsome/discordBot#readme",
+  "dependencies": {
+    "discord.js": "^8.0.0"
+  }
+}

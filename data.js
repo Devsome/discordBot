@@ -129,7 +129,7 @@ clientBot.on("message", function (msg) {
 		}
 	}
 	
-	if(msg.author.id != clientBot.user.id && msg.content[0] === '~'){
+	if(msg.author.id != clientBot.user.id && msg.content[0] === config.command_prefix || msg.content[0] === config.mod_command_prefix){
 		var cmdTxt = msg.content.split(" ")[0].substring(1);
 		var suffix = msg.content.substring(cmdTxt.length+2);
 		var cmd = commands.commands[cmdTxt];
